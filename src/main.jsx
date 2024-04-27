@@ -20,11 +20,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <CenterPage></CenterPage>,
+    
     errorElement:<Errorpage></Errorpage>,
     children:[
       {
         path:'/',
-        element:<HomePage></HomePage>
+        element:<HomePage></HomePage>,
+        loader:()=>fetch("http://localhost:5000/addcraft")
 
       },
       {

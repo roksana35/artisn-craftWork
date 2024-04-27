@@ -40,7 +40,7 @@ const Navbar = () => {
       user?<div className="dropdown dropdown-end flex items-center justify-center">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10  rounded-full ">
-          <img className="flex items-center justify-center "  src={user?.photoURL || "https://i.ibb.co/mFj3TNM/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg"}>
+          <img className="flex items-center justify-center "  src={user?.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'}>
           </img>
           
         </div>
