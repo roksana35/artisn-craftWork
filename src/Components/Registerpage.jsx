@@ -3,6 +3,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "../Layout/Footer";
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Registerpage = () => {
@@ -34,11 +38,14 @@ const Registerpage = () => {
        
         .then(result=>{
             console.log(result.user)
-            updateUser(name,image)
-            .then(()=>{
-                navigate(form)
-            })
+            // updateUser(name,image)
+            // .then(()=>{
+            //     navigate(form)
+            // })
             setUser(result.user)
+            toast.success("Successfully Register !", {
+              position: "bottom-right",
+            });
         })
         .catch(error=>{
           console.error(error)
@@ -89,6 +96,9 @@ const Registerpage = () => {
           <button className="btn btn-primary">Regiser</button>
         </div>
       </form>
+      <div className="absolute bottom-8 right-8">
+              <ToastContainer position="bottom-right" />
+            </div>
       {
         registererror&&<p className="text-red-500 p-2">{registererror}</p>
       }
