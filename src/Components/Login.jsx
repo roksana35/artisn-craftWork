@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Navbar from "./Navbar";
 import Footer from "../Layout/Footer";
@@ -10,7 +10,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const  [error,seterror]=useState('');
-  const{loginUser,googleLogin,setUser}=useContext(AuthContext);
+  const{loginUser,googleLogin,setUser,githubLogin}=useContext(AuthContext);
+  const location=useLocation();
+  const navigate= useNavigate()
 
     const handleLogin=e=>{
       e.preventDefault();
@@ -35,6 +37,7 @@ const Login = () => {
             toast.success("Success login", {
               position: "bottom-right",
             });
+            navigate(location?.state?location.state:'/');
             setUser(result.user)
         }).catch(error => {
           console.error(error);
@@ -48,6 +51,15 @@ const Login = () => {
 
       }).catch(error=>{
         console.error(error)
+      })
+    }
+    const handleGithubLogin=()=>{
+      githubLogin()
+      .then(result=>{
+        console.log(result.user)
+        setUser(result.user)
+      }).catch(error=>{
+        console.log(error)
       })
     }
     return (
@@ -94,7 +106,7 @@ const Login = () => {
       <button onClick={handleGoogleLogin} className="btn btn-outline border-2 border-purple-800 mx-auto">Continue with Google</button>
    </div>
    <div className="p-2 lg:ml-7 mx-auto">
-      <button className="btn btn-outline border-2 border-purple-800 mt-2">Continue with Github</button>
+      <button onClick={handleGithubLogin} className="btn btn-outline border-2 border-purple-800 mt-2">Continue with Github</button>
    </div>
    </div>
    

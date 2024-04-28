@@ -43,6 +43,19 @@ const Registerpage = () => {
             //     navigate(form)
             // })
             setUser(result.user)
+            const createAt= result.user?.metadata?.creationTime;
+            const user={email,createAt:createAt}
+            fetch('http://localhost:5000/users',{
+              method:'POST',
+              headers:{
+                'content-type':'application/json'
+              },
+              body:JSON.stringify(user)
+
+            }).then(res=>res.json())
+            .then(data=>{
+              console.log(data)
+            })
             toast.success("Successfully Register !", {
               position: "bottom-right",
             });

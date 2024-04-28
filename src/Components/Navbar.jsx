@@ -18,8 +18,13 @@ const Navbar = () => {
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
       <li><NavLink to='/' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>Home</NavLink></li>
       <li><NavLink to='/artandcraft' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>All Art & Craft Items </NavLink></li>
-      <li><NavLink to='/addcraft' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>Add Craft item</NavLink></li>
-      <li><NavLink to='/myart' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>My Art & Craft list</NavLink></li>
+      {
+        user&&<li><NavLink to='/addcraft' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>Add Craft item</NavLink></li>
+      }
+      
+      {
+      user&&<li><NavLink to='/myart' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>My Art & Craft list</NavLink></li>
+      }
         
         
       </ul>
@@ -30,8 +35,13 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
       <li><NavLink to='/' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>Home</NavLink></li>
       <li><NavLink to='/artandcraft' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>All Art & Craft Items </NavLink></li>
-      <li><NavLink to='/addcraft' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>Add Craft item</NavLink></li>
-      <li><NavLink to='/myart' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>My Art & Craft list</NavLink></li>
+      {
+        user&&<li><NavLink to='/addcraft' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>Add Craft item</NavLink></li>
+      }
+      {
+      user&&<li><NavLink to='/myart' className={({isActive})=>isActive?'text-green-500 font-bold':'font-bold'}>My Art & Craft list</NavLink></li>
+      }
+      
       
     </ul>
   </div>

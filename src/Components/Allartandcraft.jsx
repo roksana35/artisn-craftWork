@@ -1,10 +1,51 @@
+import { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import Onecraft from "./Onecraft";
 
 
 const Allartandcraft = () => {
+    const loadedCraft =useLoaderData();
+
+    
+    const [crafts,setCraft]=useState(loadedCraft);
+    console.log(crafts)
     return (
-        <div>
-            <h1>all art and craft item</h1>
-        </div>
+        <div className="overflow-x-auto">
+             <table className="table table-xs" style={{ width: "100%", borderCollapse: "collapse" }}>
+    <thead>
+      <tr>
+        <th></th> 
+        <th>ItemName</th> 
+        <th>SubCategoryName</th> 
+        <th>UserEmail</th> 
+        <th>StockStatus</th> 
+        <th>Rating</th> 
+        <th>Details</th>
+      </tr>
+    </thead> 
+    <tbody style={{ flex: "1" }}>
+    {
+            crafts.map((craft,index)=><tr key={craft._id}>
+            <th>{index+1}</th> 
+            <td>{craft.itemname}</td> 
+            <td>{craft.subname}</td> 
+            <td>{craft.userEmail}</td> 
+            <td>{craft.stockstatus}</td> 
+            <td>{craft.rating}</td> 
+            <td><Link to={`/craft/${craft._id}`} ><button>View Details</button></Link></td>
+          </tr>)
+        }
+    
+
+    </tbody>
+    
+
+   
+    
+  </table> 
+            
+  
+</div> 
     );
 };
 

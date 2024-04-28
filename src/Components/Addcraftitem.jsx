@@ -1,13 +1,17 @@
-
+import { useContext } from 'react';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Addcraftitem = () => {
+    const {user}=useContext(AuthContext);
+    // console.log(user)
     const handleAddCraft=event=>{
         event.preventDefault();
         const form=event.target;
         const itemname=form.itemname.value;
         const subname=form.subname.value;
-        const email=form.email.value;
-        const name =form.name.value;
+        // const email=form.email.value;
+        // const name =form.name.value;
         const cutomization=form.customization.value;
         const time=form.time.value;
         const price=form.price.value;
@@ -15,8 +19,11 @@ const Addcraftitem = () => {
         const stockstatus=form.stock.value;
         const image=form.image.value;
         const description=form.description.value;
-        const addCraft={itemname,subname,email,name,cutomization,time,price,rating,stockstatus,image,description}
-        console.log(itemname,subname,email,name,cutomization,time,price,rating,stockstatus,image)
+        const userEmail=user.email;
+        const userName=user.displayName;
+        console.log(userEmail,userName);
+        const addCraft={itemname,subname,userEmail,userName,cutomization,time,price,rating,stockstatus,image,description}
+        console.log(itemname,subname,userEmail,userName,cutomization,time,price,rating,stockstatus,image)
         fetch("http://localhost:5000/addcraft",{
             method:'POST',
             headers:{
@@ -27,6 +34,14 @@ const Addcraftitem = () => {
         }).then(res=>res.json())
         .then(data=>{
             console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Add Craft Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
         })
     }
     return (
@@ -53,7 +68,7 @@ const Addcraftitem = () => {
                     </div>
                 </div>
                 {/* user name and email */}
-                <div className="md:flex mb-2 gap-3">
+                {/* <div className="md:flex mb-2 gap-3">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Email</span>
@@ -70,7 +85,7 @@ const Addcraftitem = () => {
                             <input className="input input-bordered w-full " type="text" name="name" required placeholder="Enter your name"  />
                         </label>
                     </div>
-                </div>
+                </div> */}
                 {/* customization &  processing_time */}
                 <div className="md:flex mb-2 gap-3">
                     <div className="form-control md:w-1/2">
@@ -136,7 +151,7 @@ const Addcraftitem = () => {
                             <span className="label-text">Description</span>
                         </label>
                         <label className="input-ghost">
-                            <input className="input input-bordered w-full " type="text" name="description" required placeholder="imageURL"  />
+                            <input className="input input-bordered w-full " type="text" name="description" required placeholder="Description"  />
                         </label>
                     </div>
                     <div>

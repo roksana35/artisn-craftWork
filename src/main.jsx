@@ -16,6 +16,8 @@ import HomePage from './Components/HomePage';
 import Allartandcraft from './Components/Allartandcraft';
 import Addcraftitem from './Components/Addcraftitem';
 import Myart from './Components/Myart';
+import Details from './Components/Details';
+import Priveteroute from './Components/Priveteroute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,7 +33,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/artandcraft',
-        element:<Allartandcraft></Allartandcraft>
+        element:<Allartandcraft></Allartandcraft>,
+        loader:()=>fetch('http://localhost:5000/addcraft/')
       },
       {
         path:'/addcraft',
@@ -50,6 +53,10 @@ const router = createBrowserRouter([
   },{
     path:'/register',
     element:<Registerpage></Registerpage>
+  },{
+    path:'/craft/:id',
+    element: <Priveteroute><Details></Details></Priveteroute>,
+    loader:()=>fetch("http://localhost:5000/addcraft/")
   }
 
 ]);
