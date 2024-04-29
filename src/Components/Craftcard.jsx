@@ -14,21 +14,21 @@ const Craftcard = ({craft}) => {
     <h2 className="card-title text-2xl font-bold">{itemname}</h2>
     <p className="text-xl font-semibold">{subname}</p>
     <div className="">
-        <p><span className="text-black font-semibold mr-2">Email:</span>{userEmail}</p>
-        <p><span className="text-black font-semibold mr-2">Name:</span>{userName}</p>
+        <p><span className=" font-semibold mr-2">Email:</span>{userEmail}</p>
+        <p><span className="font-semibold mr-2">Name:</span>{userName}</p>
     </div>
     <div className="">
-        <p><span className="text-black font-semibold mr-2">Customization:</span> {cutomization}</p>
-        <p><span className="text-black font-semibold mr-2">StockStatus:</span>{stockstatus} </p>
+        <p><span className=" font-semibold mr-2">Customization:</span> {cutomization}</p>
+        <p><span className=" font-semibold mr-2">StockStatus:</span>{stockstatus} </p>
     </div>
     <div className="flex gap-10">
-        <p><span className="text-black font-semibold mr-2">Price:</span>{price}</p>
-        <p><span className="text-black font-semibold mr-2">Time:</span>{time}</p>
-        <p className="flex items-center justify-center "><span className="text-black font-semibold mr-2">Rating:</span>     <FaRegStar />{rating}</p>
+        <p><span className=" font-semibold mr-2">Price:</span>{price}</p>
+        <p><span className=" font-semibold mr-2">Time:</span>{time}</p>
+        <p className="flex items-center justify-center "><span className=" font-semibold mr-2">Rating:</span>     <FaRegStar />{rating}</p>
     </div>
     
     <div>
-        <p><span className="text-black font-semibold mr-2">Description:</span>{description.slice(0,210)}</p>
+        <p><span className="font-semibold mr-2">Description:</span>{description.slice(0,210)}</p>
     
     
     </div>

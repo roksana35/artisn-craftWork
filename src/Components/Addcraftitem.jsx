@@ -45,8 +45,8 @@ const Addcraftitem = () => {
         })
     }
     return (
-        <div className="bg-[#F4F3F0] P-24">
-            <h1 className="text-2xl font-bold md:pt-8 md:ml-6 ">Add craft item</h1>
+        <div className=" P-24">
+            <h1 className="text-2xl font-bold md:pt-8 md:ml-6 text-center">Add craft item</h1>
             <form onSubmit={handleAddCraft} className="p-8">
                 {/* item name and subcategory name */}
                 <div className="md:flex mb-2 gap-3">
