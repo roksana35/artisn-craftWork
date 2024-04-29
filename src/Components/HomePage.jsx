@@ -20,12 +20,15 @@ const HomePage = () => {
     if(loading){
         return <span className="loading loading-spinner loading-lg text-center block items-center"></span>
     }
-    fetch("http://localhost:5000/category")
+   
+        fetch("http://localhost:5000/category")
     .then(res => res.json())
     .then(data=>{
-        console.log(data)
-        setCategorys(data)
+        // console.log(data)
+        setCategorys(data.slice(0,6))
     })
+
+    
     
 
     // console.log(crafts)
@@ -40,8 +43,8 @@ const HomePage = () => {
                 }
 
             </div>
-            <h2>category:{categorys.length}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
             {
                 categorys.map(category=><Category key={category._id} category={category}></Category>)
 
