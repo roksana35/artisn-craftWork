@@ -46,6 +46,7 @@ const LogOut=()=>{
 }
 // onauthstatechange
 useEffect(()=>{
+  
     const unSubscribe=onAuthStateChanged(auth,(currentuser)=>{
         // console.log(currentuser)
         setUser(currentuser)
@@ -63,7 +64,9 @@ useEffect(()=>{
         updateUser,
         loginUser,
         googleLogin,
-        LogOut,githubLogin
+        LogOut,githubLogin,
+        setLoading
+
 
 
     }

@@ -1,8 +1,49 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
-const Mycraftlist = ({item}) => {
+const Mycraftlist = ({item,items,setItems}) => {
     const {_id,itemname,subname,userEmail,userName,cutomization,time,price,rating,stockstatus,image,description}=item;
+    const [control,setControl]=useState(false)
+
+    const HandleDelete=(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+            //   
+            fetch(`http://localhost:5000/delete/${id}`,{
+            method:'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data?.deletedCount>0){
+                Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                      });
+                setControl(!control)
+                const remaning=items.filter(i=>i._id !==id)
+                setItems(remaning)
+            }
+        })
+            }
+          });
+        
+            
+
+
+
+    }
     return (
         <div>
             
@@ -19,8 +60,8 @@ const Mycraftlist = ({item}) => {
     
     <div className=" flex flex-row ">
         <div className="">
-            <Link><button className="btn btn-secondary mr-5">Update</button></Link>
-            <button className="btn btn-primary">Delete</button>
+            <Link to={`/update/${_id}`}><button className="btn btn-secondary mr-5">Update</button></Link>
+            <button onClick={()=>HandleDelete(_id)} className="btn btn-primary">Delete</button>
 
         </div>
       

@@ -34,11 +34,14 @@ const Login = () => {
         loginUser(email,password)
         .then(result=>{
             console.log(result.user)
+            
+
             toast.success("Success login", {
               position: "bottom-right",
             });
             navigate(location?.state?location.state:'/');
             setUser(result.user)
+            
         }).catch(error => {
           console.error(error);
           seterror(error.message); // Extract the error message

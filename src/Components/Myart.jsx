@@ -22,7 +22,7 @@ const Myart = () => {
             
             <div className='grid grid-cols-1 md:grid-cols-2 md:gap-10'>
             {
-                items.map(item=><Mycraftlist key={item._id} item={item}></Mycraftlist>)
+                items.map(item=><Mycraftlist key={item._id} items={items} setItems={setItems} item={item}></Mycraftlist>)
             }
 
             </div>
