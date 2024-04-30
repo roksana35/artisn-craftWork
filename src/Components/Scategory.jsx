@@ -1,10 +1,13 @@
 import { useState } from "react";
+// import { useParams } from "react-router-dom";
 
 
 const Scategory = () => {
 
     const [citems,setCitems]=useState([]);
-    // fetch()
+    // fetch(`http://localhost:5000/subcategory/${params.subcategoeyname}`)
+    
+    
 
 
 

@@ -51,6 +51,9 @@ const Login = () => {
       .then(result=>{
         console.log(result.user)
         setUser(result.user)
+        toast.success("Success login", {
+          position: "bottom-right",
+        });
 
       }).catch(error=>{
         console.error(error)
@@ -61,6 +64,9 @@ const Login = () => {
       .then(result=>{
         console.log(result.user)
         setUser(result.user)
+        toast.success("Success login", {
+          position: "bottom-right",
+        });
       }).catch(error=>{
         console.log(error)
       })

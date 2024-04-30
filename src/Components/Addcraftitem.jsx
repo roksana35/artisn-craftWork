@@ -1,9 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Addcraftitem = () => {
     const {user}=useContext(AuthContext);
+    const [selectedSubcate, setSelectedSubcate] = useState('');
+
+    const options=[
+        {value: "Landscape Painting",label: "Landscape Painting"},
+        {value: "Portrait Drawing",label:" Portrait Drawing"},
+        {value:" Watercolour Painting",label:" Watercolour Painting"},
+        {value:"Oil Painting",label:"Oil Painting"},
+        {value:"Charcoal Sketching",label:"Charcoal Sketching"},
+        {value:"Cartoon Drawing",label:"Cartoon Drawing"}
+    ]
+    const handleSubcategoryChange = (event) => {
+        setSelectedSubcate(event.target.value);
+    };
     // console.log(user)
     const handleAddCraft=event=>{
         event.preventDefault();
@@ -59,12 +72,19 @@ const Addcraftitem = () => {
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
-                        <label className="label">
+                        <label  className="label">
                             <span className="label-text"> Subcategory Name</span>
                         </label>
-                        <label className="input-ghost">
-                            <input className="input input-bordered w-full " type="text" name="subname" required placeholder="enter subcategoryname"  />
-                        </label>
+                        <select className="select select-bordered w-full" value={selectedSubcate} name='subname' onChange={handleSubcategoryChange} required>
+                            <option value="" disabled>Select a subcategory</option>
+                            {options.map((option) => (
+                                <option key={option.value} value={option.value}>{option.label}</option>
+                            ))}
+                        </select>
+                        
+                        {/* <label  className="input-ghost">
+                            <input className="input input-bordered w-full " type="text" name="subname" required placeholder="enter subcategoryname"  /> 
+                         </label>  */}
                     </div>
                 </div>
                 {/* user name and email */}
