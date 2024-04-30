@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import Craftcard from "./Craftcard";
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Category from "./Category";
 import Extrasection1 from "./Extrasection/Extrasection1";
@@ -52,7 +52,7 @@ const HomePage = () => {
                 categorys.map(category=><Category key={category._id} category={category}></Category>)
 
             }
-            
+
             </div>
             <div>
                 <Extrasection1></Extrasection1>
