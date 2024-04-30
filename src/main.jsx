@@ -19,7 +19,7 @@ import Myart from './Components/Myart';
 import Details from './Components/Details';
 import Priveteroute from './Components/Priveteroute';
 import Updatedetails from './Components/Updatedetails';
-import Scategory from './Components/Scategory';
+
 
 const router = createBrowserRouter([
   {
@@ -66,11 +66,7 @@ const router = createBrowserRouter([
     element:<Updatedetails></Updatedetails>,
     // loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
   },
-  {
-    path:'/subcategory',
-    element:<Scategory></Scategory>,
-    
-  }
+ 
 
 ]);
 
