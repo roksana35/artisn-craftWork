@@ -19,7 +19,7 @@ const Category = ({category}) => {
 
     
     return (
-        <Link to='/subdetails'>
+        <Link to='/subcategory'>
         <div onClick={()=>handleCategory(_id)} className="card  bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl md:w-[300px] md:h-[250px]" />

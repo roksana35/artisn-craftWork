@@ -4,6 +4,8 @@ import Craftcard from "./Craftcard";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Category from "./Category";
+import Extrasection1 from "./Extrasection/Extrasection1";
+import Extrasection2 from "./Extrasection/Extrasection2";
 
 
 const HomePage = () => {
@@ -43,12 +45,20 @@ const HomePage = () => {
                 }
 
             </div>
+            <h2 className="text-2xl font-bold mt-6 text-center">Arts and Craft Category</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
             {
                 categorys.map(category=><Category key={category._id} category={category}></Category>)
 
             }
+            
+            </div>
+            <div>
+                <Extrasection1></Extrasection1>
+            </div>
+            <div>
+            <Extrasection2></Extrasection2>
             </div>
         </div>
     );

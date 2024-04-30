@@ -20,6 +20,7 @@ import Details from './Components/Details';
 import Priveteroute from './Components/Priveteroute';
 import Updatedetails from './Components/Updatedetails';
 import Scategory from './Components/Scategory';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,11 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/addcraft',
-        element:<Addcraftitem></Addcraftitem>
+        element:<Priveteroute><Addcraftitem></Addcraftitem></Priveteroute>
 
       },{
         path:'/myart',
-        element:<Myart></Myart>
+        element:<Priveteroute><Myart></Myart></Priveteroute>
       }
       
     ]
@@ -64,8 +65,9 @@ const router = createBrowserRouter([
     path:'/update/:id',
     element:<Updatedetails></Updatedetails>,
     // loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
-  },{
-    path:'/subdetails',
+  },
+  {
+    path:'/subcategory',
     element:<Scategory></Scategory>
   }
 

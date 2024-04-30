@@ -21,7 +21,7 @@ const Craftcard = ({craft}) => {
         <p><span className=" font-semibold mr-2">Customization:</span> {cutomization}</p>
         <p><span className=" font-semibold mr-2">StockStatus:</span>{stockstatus} </p>
     </div>
-    <div className="flex gap-10">
+    <div className="flex md:gap-10">
         <p><span className=" font-semibold mr-2">Price:</span>{price}</p>
         <p><span className=" font-semibold mr-2">Time:</span>{time}</p>
         <p className="flex items-center justify-center "><span className=" font-semibold mr-2">Rating:</span>     <FaRegStar />{rating}</p>
